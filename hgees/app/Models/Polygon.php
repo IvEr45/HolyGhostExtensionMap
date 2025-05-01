@@ -9,11 +9,9 @@ class Polygon extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['coordinates'];
+    protected $fillable = ['coordinates', 'house_number', 'residents', 'color'];
 
-    // No need for array casting as coordinates is stored as a longText string
-    // If you want to use as an array in your code, you can create accessor methods
-    
+
     /**
      * Get the polygon coordinates as an array.
      *
