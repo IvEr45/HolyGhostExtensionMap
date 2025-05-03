@@ -232,16 +232,21 @@
 
     <!-- Property Info Card -->
     <div id="info-card">
-        <h3>Property Information</h3>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <img src="/images/Zlp5zJm7x6g6Ml9T_image-removebg-preview.png" alt="Logo" style="max-width: 80px; height: auto; display: block; margin: 0 auto;">
+        <h2 style="font-size: 20px; margin: 10px 0 0; color: #333;">Holy Ghost Extension Map</h2>
+    </div>
+    
+    <h3>Area Information</h3>
         
         <!-- View mode section -->
         <div class="view-mode">
             <div class="info-item">
-                <label>House Number:</label>
+                <label>Title:</label>
                 <p id="info-house-number">-</p>
             </div>
             <div class="info-item">
-                <label>Residents:</label>
+                <label>Description:</label>
                 <p id="info-residents">-</p>
             </div>
             
@@ -255,11 +260,11 @@
             <form id="edit-property-form" class="edit-form">
                 <input type="hidden" id="edit-polygon-id">
                 <div class="form-group">
-                    <label for="edit-house-number">House Number:</label>
+                    <label for="edit-house-number">Title:</label>
                     <input type="text" id="edit-house-number" name="house_number" required>
                 </div>
                 <div class="form-group">
-                    <label for="edit-residents">Residents:</label>
+                    <label for="edit-residents">Description:</label>
                     <input type="text" id="edit-residents" name="residents" required>
                 </div>
                 <div class="edit-actions">
@@ -267,7 +272,7 @@
                     <button type="button" id="cancel-edit-btn" class="cancel-edit-btn">Cancel</button>
                 </div>
                 <div class="form-group">
-    <label for="edit-color">Polygon Color:</label>
+    <label for="edit-color">Color:</label>
     <input type="color" id="edit-color" name="color" value="#0080ff">
 </div>
 
@@ -275,7 +280,7 @@
         </div>
         
         <div class="info-message" id="info-message">
-            Click on a polygon to view property details
+            Click on an area to view details
         </div>
     </div>
 
@@ -284,18 +289,18 @@
     <!-- Modal for saving polygon information -->
     <div id="save-modal">
         <div class="modal-content">
-            <h3>Property Information</h3>
+            <h3>Area Information</h3>
             <form id="polygon-form" action="/save-polygon" method="POST">
                 @csrf
                 <input type="hidden" id="polygon-coordinates" name="coordinates">
                 
                 <div class="form-group">
-                    <label for="house-number">House Number:</label>
+                    <label for="house-number">Title:</label>
                     <input type="text" id="house-number" name="house_number" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="residents">Residents:</label>
+                    <label for="residents">Description:</label>
                     <input type="text" id="residents" name="residents" required>
                 </div>
                 
@@ -413,7 +418,7 @@ document.getElementById('focus-btn').addEventListener('click', () => {
 
         // Validate inputs
         if (!houseNumber || !residents) {
-            showNotification('House number and residents are required', 'error');
+            showNotification('Title and Description are required', 'error');
             return;
         }
         
