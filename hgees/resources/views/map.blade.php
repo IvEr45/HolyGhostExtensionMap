@@ -560,12 +560,14 @@ map.getSource(`polygon-source-${databaseId}`).setData(updatedSourceData);
                 
                 // Also remove any associated map layers
                 if (map.getLayer(`polygon-layer-${databaseId}`)) {
-                    map.removeLayer(`polygon-layer-${databaseId}`);
-                }
-                if (map.getSource(`polygon-source-${databaseId}`)) {
-                    map.removeSource(`polygon-source-${databaseId}`);
-                }
-                
+    map.removeLayer(`polygon-layer-${databaseId}`);
+}
+if (map.getLayer(`polygon-label-${databaseId}`)) {
+    map.removeLayer(`polygon-label-${databaseId}`);
+}
+if (map.getSource(`polygon-source-${databaseId}`)) {
+    map.removeSource(`polygon-source-${databaseId}`);
+}
                 // Clean up the ID mapping
                 delete polygonIdMap[featureId];
                 
